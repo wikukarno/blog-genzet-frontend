@@ -79,7 +79,7 @@ export default function RegisterPage() {
       Cookies.set("token", token, { expires: 7 });
       Cookies.set("role", user.role, { expires: 7 });
 
-      router.push(user.role === "Admin" ? "/admin/articles" : "/user/articles");
+      router.push(user.role === "Admin" ? "/admin/articles" : "/articles");
     } catch (err) {
       if (err instanceof Error) {
         const message = err.message;

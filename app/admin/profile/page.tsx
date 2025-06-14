@@ -74,7 +74,7 @@ export default function ProfilePage() {
           <Button
             onClick={() =>
               router.push(
-                user.role === "Admin" ? "/admin/articles" : "/user/articles",
+                user.role === "Admin" ? "/admin/articles" : "/articles",
               )
             }
             className="w-full"
