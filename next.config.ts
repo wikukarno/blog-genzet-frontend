@@ -1,9 +1,6 @@
 import type { NextConfig } from "next";
 import type { RemotePattern } from "next/dist/shared/lib/image-config";
 
-// Ambil domain dari environment variable
-const imageDomain = process.env.NEXT_PUBLIC_ASSET_URL;
-
 const remotePatterns: RemotePattern[] = [
   {
     protocol: "http",
@@ -19,13 +16,28 @@ const remotePatterns: RemotePattern[] = [
   },
 ];
 
-// Tambahkan domain dari ENV kalau ada
-if (imageDomain) {
-  remotePatterns.push({
-    protocol: "https",
-    hostname: imageDomain,
-    pathname: "/storage/**",
-  });
+const imageURL = process.env.NEXT_PUBLIC_ASSET_URL;
+
+if (imageURL) {
+  try {
+    const url = new URL(imageURL);
+    const protocol = url.protocol.replace(":", "") as "http" | "https";
+
+    remotePatterns.push(
+      {
+        protocol,
+        hostname: url.hostname,
+        pathname: "/storage/**",
+      },
+      {
+        protocol,
+        hostname: url.hostname,
+        pathname: "/**",
+      },
+    );
+  } catch {
+    console.warn("⚠️ Invalid NEXT_PUBLIC_ASSET_URL:", imageURL);
+  }
 }
 
 const nextConfig: NextConfig = {
