@@ -248,9 +248,7 @@ export default function CreateArticlePage() {
               init={{
                 height: 300,
                 menubar: false,
-                plugins: [
-                  "wordcount",
-                ],
+                plugins: ["wordcount"],
                 toolbar:
                   "undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code",
                 content_style:
@@ -273,7 +271,7 @@ export default function CreateArticlePage() {
           )}
         </div>
 
-        <div className="flex justify-end gap-2">
+        <div className="flex flex-col sm:flex-row justify-end gap-2">
           <Button
             variant="outline"
             onClick={() => router.push("/admin/articles")}
