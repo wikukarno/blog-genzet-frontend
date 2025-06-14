@@ -28,6 +28,7 @@ import ClientOnlyDate from "@/components/articles/client-only-date";
 import ConfirmDeleteModal from "@/components/layout/confirm-delete-modal";
 import { Article } from "@/types/article";
 import { useDeleteArticle } from "@/hooks/use-delete-article";
+import Pagination from "@/components/articles/pagination";
 
 export default function ArticleListPage() {
   const [search, setSearch] = useState("");
@@ -48,6 +49,10 @@ export default function ArticleListPage() {
     page,
     selectedCategory,
   );
+
+  const total: number = articlesData?.total || 0;
+  const totalPages: number = Math.ceil(total / 10); // asumsi per_page = 10
+
   const { data: categoriesData, isLoading: isLoadingCategories } =
     useCategories("", 1);
 
@@ -199,24 +204,13 @@ export default function ArticleListPage() {
           </Table>
         </div>
 
-        {/* Pagination */}
-        <div className="flex justify-center gap-2 text-sm pt-4">
-          <Button
-            variant="outline"
-            onClick={() => setPage((p) => Math.max(p - 1, 1))}
-            disabled={page === 1}
-          >
-            ‹ Previous
-          </Button>
-          <Button variant="outline">{page}</Button>
-          <Button
-            variant="outline"
-            onClick={() => setPage((p) => p + 1)}
-            disabled={articlesData?.data.length === 0}
-          >
-            Next ›
-          </Button>
-        </div>
+        {totalPages > 1 && (
+          <Pagination
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={(newPage) => setPage(newPage)}
+          />
+        )}
       </div>
 
       <ConfirmDeleteModal
