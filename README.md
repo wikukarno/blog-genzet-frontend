@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📰 Blog Genzet - Frontend
 
-## Getting Started
+Ini adalah proyek frontend dari aplikasi Blog Genzet. Aplikasi ini memungkinkan pengguna untuk melihat artikel, melakukan pencarian, filter berdasarkan kategori, dan menampilkan halaman preview untuk admin. Dibangun menggunakan **Next.js (App Router)**, **React**, **Tailwind CSS**, dan integrasi API ke backend Laravel.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📁 Struktur Project
+```
+app/
+├── articles/ # Halaman publik daftar artikel
+│ └── preview/[id]/ # Halaman preview artikel publik (slug-based)
+├── admin/ # Halaman admin
+│ ├── articles/ # List, create, edit artikel
+│ ├── categories/ # Manajemen kategori
+│ └── profile/ # Profil admin
+components/ # Komponen UI (HeroSection, Footer, Card, dll)
+hooks/ # React Query hooks (fetch artikel, kategori, dll)
+services/ # API service
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Teknologi yang Digunakan
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js (v14+)**
+- **React**
+- **Tailwind CSS**
+- **TinyMCE** (untuk rich text editor)
+- **React Query** (fetch data)
+- **Radix UI** (Dropdown, Dialog)
+- **Lucide Icons**
+- **js-cookie** (auth token)
+- **Dynamic Route & Server Component**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔐 Autentikasi
 
-## Learn More
+Aplikasi menggunakan token dari cookie (`token`) yang diset saat login. Beberapa halaman admin dan preview membutuhkan token valid agar bisa mengakses konten.
 
-To learn more about Next.js, take a look at the following resources:
+## 🧩 Fitur
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Halaman Publik
+- Daftar artikel dengan pagination
+- Filter kategori & pencarian (debounce)
+- Hero section dengan informasi pengguna
+- Preview artikel (public preview by slug)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Halaman Admin
+- Login (auth token via cookie)
+- Manajemen artikel:
+  - Create, edit, delete
+  - Upload thumbnail
+  - Preview langsung
+- Manajemen kategori
+- Profil dan logout
 
-## Deploy on Vercel
+### UI/UX
+- Modal konfirmasi logout
+- Dropdown menu di header
+- Validasi form dengan feedback
+- Loading state
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Instalasi & Development
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/yourusername/blog-genzet-frontend.git
+cd blog-genzet-frontend
+```
+### 2. Install Dependencies
+```bash
+npm install
+```
+### 3. Jalankan Aplikasi
+```bash
+npm run dev
+```
+### 4. Akses Aplikasi
+Buka browser dan akses `http://localhost:3000`.
+
+
+
