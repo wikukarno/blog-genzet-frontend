@@ -36,7 +36,7 @@ if (imageURL) {
       },
     );
   } catch {
-    console.warn("⚠️ Invalid NEXT_PUBLIC_ASSET_URL:", imageURL);
+    console.warn("Invalid NEXT_PUBLIC_ASSET_URL:", imageURL);
   }
 }
 
