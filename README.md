@@ -1,78 +1,87 @@
 # 📰 Blog Genzet - Frontend
 
-Ini adalah proyek frontend dari aplikasi Blog Genzet. Aplikasi ini memungkinkan pengguna untuk melihat artikel, melakukan pencarian, filter berdasarkan kategori, dan menampilkan halaman preview untuk admin. Dibangun menggunakan **Next.js (App Router)**, **React**, **Tailwind CSS**, dan integrasi API ke backend Laravel.
+This is the frontend project for the Blog Genzet application. It allows users to view articles, search, filter by category, and provides an admin preview page. Built with **Next.js (App Router)**, **React**, **Tailwind CSS**, and integrated with a Laravel backend API.
 
-## 📁 Struktur Project
-```
+## 📁 Project Structure
+
+```plaintext
 app/
-├── articles/ # Halaman publik daftar artikel
-│ └── preview/[id]/ # Halaman preview artikel publik (slug-based)
-├── admin/ # Halaman admin
-│ ├── articles/ # List, create, edit artikel
-│ ├── categories/ # Manajemen kategori
-│ └── profile/ # Profil admin
-components/ # Komponen UI (HeroSection, Footer, Card, dll)
-hooks/ # React Query hooks (fetch artikel, kategori, dll)
-services/ # API service
+├── (auth)/ # Authentication pages
+├── articles/ # Public article listing page
+│ └── preview/[id]/ # Public article preview (slug-based)
+├── admin/ # Admin dashboard pages
+│ ├── articles/ # List, create, edit articles
+│ ├── categories/ # Category management
+│ └── profile/ # Admin profile
+components/ # UI components (HeroSection, Footer, Card, etc.)
+hooks/ # React Query hooks (fetch articles, categories, etc.)
+services/ # API service layer
+styles/ # Global styles and Tailwind configuration
+types/ # TypeScript types and interfaces
+public/ # Static assets (images, icons)
+next.config.js # Next.js configuration
+package.json # Project dependencies and scripts
+README.md # Project documentation
 ```
 
-## 🚀 Teknologi yang Digunakan
+## 🚀 Technologies Used
 
 - **Next.js (v14+)**
 - **React**
 - **Tailwind CSS**
-- **TinyMCE** (untuk rich text editor)
-- **React Query** (fetch data)
+- **TinyMCE** (rich text editor)
+- **React Query** (data fetching)
 - **Radix UI** (Dropdown, Dialog)
 - **Lucide Icons**
 - **js-cookie** (auth token)
-- **Dynamic Route & Server Component**
+- **Dynamic Routing & Server Components**
 
-## 🔐 Autentikasi
+## 🔐 Authentication
 
-Aplikasi menggunakan token dari cookie (`token`) yang diset saat login. Beberapa halaman admin dan preview membutuhkan token valid agar bisa mengakses konten.
+The app uses a token stored in cookies (`token`) set during login. Certain admin and preview pages require a valid token for access.
 
-## 🧩 Fitur
+## 🧩 Features
 
-### Halaman Publik
-- Daftar artikel dengan pagination
-- Filter kategori & pencarian (debounce)
-- Hero section dengan informasi pengguna
-- Preview artikel (public preview by slug)
+### Public Pages
 
-### Halaman Admin
-- Login (auth token via cookie)
-- Manajemen artikel:
+- Article listing with pagination
+- Category filtering & search with debounce
+- Hero section showing user info
+- Article preview by slug
+
+### Admin Pages
+
+- Login (token-based auth via cookies)
+- Article management:
   - Create, edit, delete
   - Upload thumbnail
-  - Preview langsung
-- Manajemen kategori
-- Profil dan logout
+  - Live preview
+- Category management
+- Profile and logout functionality
 
-### UI/UX
-- Modal konfirmasi logout
-- Dropdown menu di header
-- Validasi form dengan feedback
-- Loading state
+### UI/UX Enhancements
 
-## 🛠️ Instalasi & Development
+- Logout confirmation modal
+- Dropdown menu in the header
+- Form validation with feedback
+- Loading states for better UX
 
-### 1. Clone Repository
+## 🛠️ Installation & Development
+
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/blog-genzet-frontend.git
+git clone https://github.com/wikukarno/blog-genzet-frontend.git
 cd blog-genzet-frontend
 ```
 ### 2. Install Dependencies
+
 ```bash
 npm install
 ```
-### 3. Jalankan Aplikasi
-```bash
-npm run dev
-```
-### 4. Akses Aplikasi
-Buka browser dan akses `http://localhost:3000`.
+### 4. Access the App
+Open your browser and go to http://localhost:3000.
 
-
-
+### 🧾 Backend Repository
+The backend repository is available here:
+[Blog Genzet Backend](https://github.com/wikukarno/blog-genzet-backend)
