@@ -221,10 +221,7 @@ export default function EditArticlePage() {
               init={{
                 height: 300,
                 menubar: false,
-                plugins: [
-                  "fullscreen",
-                  "wordcount",
-                ],
+                plugins: ["fullscreen", "wordcount"],
                 toolbar:
                   "undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code",
               }}
@@ -233,7 +230,7 @@ export default function EditArticlePage() {
         </div>
 
         {/* Actions */}
-        <div className="flex justify-end gap-2">
+        <div className="flex flex-col sm:flex-row justify-end gap-2">
           <Button
             variant="outline"
             onClick={() => router.push("/admin/articles")}
