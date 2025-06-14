@@ -166,7 +166,7 @@ export default function ArticleListPage() {
                     </TableCell>
                     <TableCell className="p-3 space-x-2">
                       <a
-                        href={`/show/${article.id}`}
+                        href={`/articles/${article.slug}`}
                         target="_blank"
                         className="text-blue-600 hover:underline"
                       >
