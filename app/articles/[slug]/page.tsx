@@ -1,3 +1,4 @@
+import Footer from "@/components/articles/footer";
 import Header from "@/components/layout/header";
 import { Article } from "@/types/article";
 import { cookies } from "next/headers";
@@ -147,18 +148,7 @@ export default async function PreviewArticlePage({
       )}
 
       {/* Footer */}
-      <footer className="mt-12 text-center text-sm text-white bg-blue-600 py-4">
-        <div className="max-w-6xl mx-auto px-4">
-          <Image
-            src="/logo-white.svg"
-            alt="Logo"
-            className="mx-auto h-4 mb-1"
-            width={80}
-            height={20}
-          />
-          © 2025 Blog genzet. All rights reserved.
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
