@@ -90,7 +90,7 @@ export default function CreateArticlePage() {
     }
 
     sessionStorage.setItem("preview-article", JSON.stringify(previewData));
-    window.open(`/articles/${slug}/preview`, "_blank");
+    window.open(`/articles/preview`, "_blank");
   };
 
   const handleSubmit = () => {

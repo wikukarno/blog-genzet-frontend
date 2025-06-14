@@ -4,13 +4,11 @@ import { cookies } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 
-type Props = {
-  params: {
-    id: string;
-  };
-}
-
-export default async function PreviewArticlePage({ params }: Props) {
+export default async function PreviewArticlePage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
 
@@ -59,7 +57,7 @@ export default async function PreviewArticlePage({ params }: Props) {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Navbar */}
-      <Header/>
+      <Header />
 
       {/* Main content */}
       <div className="max-w-6xl mx-auto w-full px-4">

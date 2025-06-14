@@ -60,8 +60,10 @@ export default function PreviewArticlePage() {
         </header>
 
         {/* Hero Image */}
+
         {preview.thumbnail && (
           <div className="rounded-lg overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={preview.thumbnail}
               alt="Hero"
